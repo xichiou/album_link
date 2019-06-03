@@ -3,11 +3,11 @@
 use XoopsModules\Tadtools\Utility;
 
 //分類底下的連結數
-if (!function_exists('tad_link_cate_count')) {
-    function tad_link_cate_count()
+if (!function_exists('album_link_cate_count')) {
+    function album_link_cate_count()
     {
         global $xoopsDB;
-        $sql = 'SELECT cate_sn,count(*) FROM ' . $xoopsDB->prefix('tad_link') . ' GROUP BY cate_sn';
+        $sql = 'SELECT cate_sn,count(*) FROM ' . $xoopsDB->prefix('album_link') . ' GROUP BY cate_sn';
         $result = $xoopsDB->query($sql) or Utility::web_error($sql, __FILE__, __LINE__);
         while (list($cate_sn, $count) = $xoopsDB->fetchRow($result)) {
             $all[$cate_sn] = (int) ($count);
@@ -22,7 +22,7 @@ if (!function_exists('block_link_cate')) {
     function block_link_cate($selected = '')
     {
         global $xoopsDB;
-        $counter = tad_link_cate_count();
+        $counter = album_link_cate_count();
 
         if (!empty($selected)) {
             $sc = explode(',', $selected);
@@ -33,7 +33,7 @@ if (!function_exists('block_link_cate')) {
         i=0;
         var arr = new Array();';
 
-        $sql = 'SELECT `cate_sn`,`cate_title` FROM ' . $xoopsDB->prefix('tad_link_cate') . ' ORDER BY of_cate_sn,cate_sort';
+        $sql = 'SELECT `cate_sn`,`cate_title` FROM ' . $xoopsDB->prefix('album_link_cate') . ' ORDER BY of_cate_sn,cate_sort';
         $result = $xoopsDB->query($sql);
         $option = '';
         while (list($cate_sn, $cate_title) = $xoopsDB->fetchRow($result)) {

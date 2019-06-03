@@ -4,14 +4,14 @@ include_once $GLOBALS['xoops']->path('/modules/system/include/functions.php');
 $op = system_CleanVars($_REQUEST, 'op', '', 'string');
 $link_sn = system_CleanVars($_REQUEST, 'link_sn', 0, 'int');
 
-$all = get_tad_link($link_sn);
+$all = get_album_link($link_sn);
 foreach ($all as $k => $v) {
     $$k = $v;
 }
 
-add_tad_link_counter($link_sn);
+add_album_link_counter($link_sn);
 
-$cate = get_tad_link_cate_all();
+$cate = get_album_link_cate_all();
 
 if ('hide' === $op) {
     $main = mk_content($link_sn, $xoopsModuleConfig['show_mode'], $link_title, $link_url, $cate_sn, $cate[$cate_sn]['cate_title'], $link_desc, $link_counter);

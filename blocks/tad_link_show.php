@@ -1,7 +1,7 @@
 <?php
 use XoopsModules\Tadtools\Utility;
-//區塊主函式 (最新好站連結(tad_link_show))
-function tad_link_show($options)
+//區塊主函式 (最新好站連結(album_link_show))
+function album_link_show($options)
 {
     global $xoopsDB;
     if (empty($options[0])) {
@@ -19,7 +19,7 @@ function tad_link_show($options)
     $and_cate = empty($options[6]) ? '' : "and cate_sn in({$options[6]})";
     //今天日期
     $today = date('Y-m-d');
-    $sql = 'select * from ' . $xoopsDB->prefix('tad_link') . " where `enable`='1' and (`unable_date`='0000-00-00' or `unable_date` >='$today') $and_cate $order limit 0,{$options[0]}";
+    $sql = 'select * from ' . $xoopsDB->prefix('album_link') . " where `enable`='1' and (`unable_date`='0000-00-00' or `unable_date` >='$today') $and_cate $order limit 0,{$options[0]}";
 
     $result = $xoopsDB->query($sql) or Utility::web_error($sql, __FILE__, __LINE__);
 
@@ -32,7 +32,7 @@ function tad_link_show($options)
         }
 
         $val = ($options[5]) ? $link_url : $link_sn;
-        $link_go = ($options[5]) ? $link_url : '' . XOOPS_URL . "/modules/tad_link/index.php?link_sn={$link_sn}";
+        $link_go = ($options[5]) ? $link_url : '' . XOOPS_URL . "/modules/album_link/index.php?link_sn={$link_sn}";
 
         $height = 10;
         $thumb = get_show_block_pic($link_sn);
@@ -61,9 +61,9 @@ function tad_link_show($options)
 }
 
 //區塊編輯函式
-function tad_link_show_edit($options)
+function album_link_show_edit($options)
 {
-    include_once XOOPS_ROOT_PATH . '/modules/tad_link/function_block.php';
+    include_once XOOPS_ROOT_PATH . '/modules/album_link/function_block.php';
 
     $chked1_1 = ('1' == $options[1]) ? 'checked' : '';
     $chked1_0 = ('0' == $options[1]) ? 'checked' : '';
@@ -89,65 +89,65 @@ function tad_link_show_edit($options)
     $form = "{$menu['js']}
     <ol class='my-form'>
         <li class='my-row'>
-            <lable class='my-label'>" . _MB_TADLINK_SHOW_EDIT_BITEM0 . "</lable>
+            <lable class='my-label'>" . _MB_ALBUMLINK_SHOW_EDIT_BITEM0 . "</lable>
             <div class='my-content'>
                 <input type='text' name='options[0]' class='my-input' value='{$options[0]}' size=3>
             </div>
         </li>
         <li class='my-row'>
-            <lable class='my-label'>" . _MB_TADLINK_SHOW_EDIT_BITEM1 . "</lable>
+            <lable class='my-label'>" . _MB_ALBUMLINK_SHOW_EDIT_BITEM1 . "</lable>
             <div class='my-content'>
                 <input type='radio' name='options[1]' value='1' $chked1_1>" . _YES . "
                 <input type='radio' name='options[1]' value='0' $chked1_0>" . _NO . "
             </div>
         </li>
         <li class='my-row'>
-            <lable class='my-label'>" . _MB_TADLINK_SHOW_EDIT_BITEM2 . "</lable>
+            <lable class='my-label'>" . _MB_ALBUMLINK_SHOW_EDIT_BITEM2 . "</lable>
             <div class='my-content'>
                 <input type='radio' name='options[2]' value='1' $chked2_1>" . _YES . "
                 <input type='radio' name='options[2]' value='0' $chked2_0>" . _NO . "
             </div>
         </li>
         <li class='my-row'>
-            <lable class='my-label'>" . _MB_TADLINK_SHOW_EDIT_BITEM3 . "</lable>
+            <lable class='my-label'>" . _MB_ALBUMLINK_SHOW_EDIT_BITEM3 . "</lable>
             <div class='my-content'>
                 <input type='radio' name='options[3]' value='1' $chked3_1>" . _YES . "
                 <input type='radio' name='options[3]' value='0' $chked3_0>" . _NO . "
             </div>
         </li>
         <li class='my-row'>
-            <lable class='my-label'>" . _MB_TADLINK_SHOW_EDIT_BITEM3 . "</lable>
+            <lable class='my-label'>" . _MB_ALBUMLINK_SHOW_EDIT_BITEM3 . "</lable>
             <div class='my-content'>
-                <input type='radio' name='options[4]' value='new' $chked4_1>" . _MB_TADLINK_SHOW_EDIT_BITEM4 . "
-                <input type='radio' name='options[4]' value='rand' $chked4_0>" . _MB_TADLINK_SHOW_EDIT_BITEM5 . "
-                <input type='radio' name='options[4]' value='sort' $chked4_2>" . _MB_TADLINK_SHOW_EDIT_BITEM7 . "
+                <input type='radio' name='options[4]' value='new' $chked4_1>" . _MB_ALBUMLINK_SHOW_EDIT_BITEM4 . "
+                <input type='radio' name='options[4]' value='rand' $chked4_0>" . _MB_ALBUMLINK_SHOW_EDIT_BITEM5 . "
+                <input type='radio' name='options[4]' value='sort' $chked4_2>" . _MB_ALBUMLINK_SHOW_EDIT_BITEM7 . "
             </div>
         </li>
         <li class='my-row'>
-            <lable class='my-label'>" . _MB_TADLINK_SHOW_EDIT_BITEM6 . "</lable>
+            <lable class='my-label'>" . _MB_ALBUMLINK_SHOW_EDIT_BITEM6 . "</lable>
             <div class='my-content'>
                 <input type='radio' name='options[5]' value='1' $chked5_1>" . _YES . "
                 <input type='radio' name='options[5]' value='0' $chked5_0>" . _NO . "
             </div>
         </li>
         <li class='my-row'>
-            <lable class='my-label'>" . _MB_TADLINK_TAD_CATE_MENU . "</lable>
+            <lable class='my-label'>" . _MB_ALBUMLINK_TAD_CATE_MENU . "</lable>
             <div class='my-content'>
                 {$menu['form']}
                 <input type='hidden' name='options[6]' id='bb' value='{$options[6]}'>
             </div>
         </li>
         <li class='my-row'>
-            <lable class='my-label'>" . _MB_TADLINK_SHOW_HEIGHT . "</lable>
+            <lable class='my-label'>" . _MB_ALBUMLINK_SHOW_HEIGHT . "</lable>
             <div class='my-content'>
                 <input type='text' name='options[7]' class='my-input' value='{$options[7]}' size=4> px
             </div>
         </li>
         <li class='my-row'>
-            <lable class='my-label'>" . _MB_TADLINK_BOOTSTRAP_COL . "</lable>
+            <lable class='my-label'>" . _MB_ALBUMLINK_BOOTSTRAP_COL . "</lable>
             <div class='my-content'>
                 <select name='options[8]' class='my-input' value='{$options[8]}'>
-                    <option value='0' $sno>" . _MB_TADLINK_NO_BOOTSTRAP_COL . "</option>
+                    <option value='0' $sno>" . _MB_ALBUMLINK_NO_BOOTSTRAP_COL . "</option>
                     <option value='12' $s12>1</option>
                     <option value='6' $s6>2</option>
                     <option value='4' $s4>3</option>
@@ -166,9 +166,9 @@ if (!function_exists('get_show_block_pic')) {
     //顯示圖片
     function get_show_block_pic($link_sn)
     {
-        $pic = XOOPS_URL . "/uploads/tad_link/{$link_sn}.jpg";
-        $pic_path = XOOPS_ROOT_PATH . "/uploads/tad_link/{$link_sn}.jpg";
-        $empty = XOOPS_URL . '/modules/tad_link/images/pic_thumb.png';
+        $pic = XOOPS_URL . "/uploads/album_link/{$link_sn}.jpg";
+        $pic_path = XOOPS_ROOT_PATH . "/uploads/album_link/{$link_sn}.jpg";
+        $empty = XOOPS_URL . '/modules/album_link/images/pic_thumb.png';
 
         if (file_exists($pic_path)) {
             return $pic;

@@ -1,4 +1,4 @@
-CREATE TABLE `tad_link_cate` (
+CREATE TABLE `album_link_cate` (
   `cate_sn` smallint(5) unsigned NOT NULL auto_increment COMMENT '分類編號',
   `of_cate_sn` smallint(5) unsigned NOT NULL COMMENT '父分類',
   `cate_title` varchar(255) NOT NULL COMMENT '分類標題',
@@ -6,7 +6,7 @@ CREATE TABLE `tad_link_cate` (
 PRIMARY KEY (`cate_sn`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-CREATE TABLE `tad_link` (
+CREATE TABLE `album_link` (
   `link_sn` smallint(5) unsigned NOT NULL auto_increment COMMENT '連結編號',
   `cate_sn` smallint(5) unsigned NOT NULL COMMENT '所屬分類',
   `link_title` varchar(255) NOT NULL COMMENT '網站名稱',

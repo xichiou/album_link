@@ -28,5 +28,5 @@
 <{/if}>
 
 <div style="text-align:right;">
-  [ <a href="<{$xoops_url}>/modules/tad_link/index.php?cate_sn=<{$block.cate_sn}>">more...</a> ]
+  [ <a href="<{$xoops_url}>/modules/album_link/index.php?cate_sn=<{$block.cate_sn}>">more...</a> ]
 </div>

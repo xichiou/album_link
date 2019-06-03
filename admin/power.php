@@ -1,7 +1,7 @@
 <?php
 use XoopsModules\Tadtools\Utility;
 /*-----------引入檔案區--------------*/
-$xoopsOption['template_main'] = 'tad_link_adm_power.tpl';
+$xoopsOption['template_main'] = 'album_link_adm_power.tpl';
 include_once 'header.php';
 include_once '../function.php';
 
@@ -14,7 +14,7 @@ $module_id = $xoopsModule->getVar('mid');
 
 //抓取所有資料夾
 
-$sql = 'SELECT cate_sn,cate_title FROM ' . $xoopsDB->prefix('tad_link_cate');
+$sql = 'SELECT cate_sn,cate_title FROM ' . $xoopsDB->prefix('album_link_cate');
 $result = $xoopsDB->query($sql) or Utility::web_error($sql, __FILE__, __LINE__);
 while (list($cate_sn, $cate_title) = $xoopsDB->fetchRow($result)) {
     $item_list[$cate_sn] = $cate_title;
@@ -22,7 +22,7 @@ while (list($cate_sn, $cate_title) = $xoopsDB->fetchRow($result)) {
 
 $perm_desc = '';
 
-$formi = new \XoopsGroupPermForm('', $module_id, 'tad_link_post', $perm_desc);
+$formi = new \XoopsGroupPermForm('', $module_id, 'album_link_post', $perm_desc);
 foreach ($item_list as $item_id => $item_name) {
     $formi->addItem($item_id, $item_name);
 }

@@ -2,7 +2,7 @@
     <{foreach from=$block.data item=cate}>
         <{if $cate.item}>
             <{if $block.show_title=='1'}>
-                <h4><a href="<{$xoops_url}>/modules/tad_link/index.php?cate_sn=<{$cate.cate_sn}>" style="text-shadow:1px 1px 1px #aaaaaa;"><{$cate.cate_title}></a></h4>
+                <h4><a href="<{$xoops_url}>/modules/album_link/index.php?cate_sn=<{$cate.cate_sn}>" style="text-shadow:1px 1px 1px #aaaaaa;"><{$cate.cate_title}></a></h4>
             <{/if}>
             <ul class="vertical_menu">
             <{foreach from=$cate.item item=link}>
@@ -21,8 +21,8 @@
             <option value=""><{$cate.cate_title}></option>
             <{foreach from=$cate.item item=link}>
                 <option value='<{$link.val}>'>
-                <i class="fa fa-caret-right" aria-hidden="true"></i>
-                <{$link.link_title}>
+                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    <{$link.link_title}>
                 </option>
             <{/foreach}>
         </select>

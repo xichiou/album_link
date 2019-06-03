@@ -27,11 +27,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 class Update
 {
     //刪除錯誤的重複欄位及樣板檔
-    public static function chk_tad_link_block()
+    public static function chk_album_link_block()
     {
         global $xoopsDB;
         //die(var_export($xoopsConfig));
-        include XOOPS_ROOT_PATH . '/modules/tad_link/xoops_version.php';
+        include XOOPS_ROOT_PATH . '/modules/album_link/xoops_version.php';
 
         //先找出該有的區塊以及對應樣板
         foreach ($modversion['blocks'] as $i => $block) {
@@ -42,7 +42,7 @@ class Update
 
         //找出目前所有的樣板檔
         $sql = "SELECT bid,name,visible,show_func,template FROM `" . $xoopsDB->prefix('newblocks') . "`
-        WHERE `dirname` = 'tad_link' ORDER BY `func_num`";
+        WHERE `dirname` = 'album_link' ORDER BY `func_num`";
         $result = $xoopsDB->query($sql);
         while (list($bid, $name, $visible, $show_func, $template) = $xoopsDB->fetchRow($result)) {
             //假如現有的區塊和樣板對不上就刪掉
@@ -53,7 +53,7 @@ class Update
                 //連同樣板以及樣板實體檔案也要刪掉
                 $sql = 'delete from ' . $xoopsDB->prefix('tplfile') . ' as a
                 left join ' . $xoopsDB->prefix('tplsource') . "  as b on a.tpl_id=b.tpl_id
-                where a.tpl_refid='$bid' and a.tpl_module='tad_link' and a.tpl_type='block'";
+                where a.tpl_refid='$bid' and a.tpl_module='album_link' and a.tpl_type='block'";
                 $xoopsDB->queryF($sql);
             } else {
                 $sql = 'update ' . $xoopsDB->prefix('tplfile') . "
@@ -67,7 +67,7 @@ class Update
     public static function chk_chk1()
     {
         global $xoopsDB;
-        $sql = 'SELECT count(*) FROM ' . $xoopsDB->prefix('tad_link_files_center');
+        $sql = 'SELECT count(*) FROM ' . $xoopsDB->prefix('album_link_files_center');
         $result = $xoopsDB->query($sql);
         if (empty($result)) {
             return false;
@@ -79,7 +79,7 @@ class Update
     public static function go_update1()
     {
         global $xoopsDB;
-        $sql = "CREATE TABLE `" . $xoopsDB->prefix('tad_link_files_center') . "` (
+        $sql = "CREATE TABLE `" . $xoopsDB->prefix('album_link_files_center') . "` (
         `files_sn` SMALLINT(5) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '檔案流水號',
         `col_name` VARCHAR(255) NOT NULL COMMENT '欄位名稱',
         `col_sn` SMALLINT(5) UNSIGNED NOT NULL COMMENT '欄位編號',

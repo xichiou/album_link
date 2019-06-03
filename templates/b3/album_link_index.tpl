@@ -1,10 +1,10 @@
 <{$toolbar}>
 
-<{if $op=="tad_link_form"}>
+<{if $op=="album_link_form"}>
   <{if $post_cate_arr or $isAdmin or $uid==$now_uid}>
-    <{includeq file="db:tad_link_form.tpl"}>
+    <{includeq file="db:album_link_form.tpl"}>
   <{/if}>
-<{elseif $op=="show_one_tad_link"}>
+<{elseif $op=="show_one_album_link"}>
 
   <div class="well">
     <div class="row">
@@ -13,23 +13,23 @@
       </div>
       <div class="col-sm-7">
         <h1><a href="index.php?op=go&link_sn=<{$link_sn}>" target="_blank" style="text-decoration:none;"><{if $link_title}><{$link_title}><{else}><{$link_url}><{/if}></a></h1>
-        <{$smarty.const._MD_TADLINK_LINK_URL}><{$smarty.const._TAD_FOR}><a href="index.php?op=go&link_sn=<{$link_sn}>" target="_blank" ><{$link_url}></a>
+        <{$smarty.const._MD_ALBUMLINK_LINK_URL}><{$smarty.const._TAD_FOR}><a href="index.php?op=go&link_sn=<{$link_sn}>" target="_blank" ><{$link_url}></a>
         <div class="row">
           <div class="col-sm-6">
             <button class="btn btn-primary btn-xs" type="button">
-              <a href="index.php?cate_sn=<{$cate_sn}>" style="color: white;"><{if $cate_sn}><{$cate_title}><{else}><{$smarty.const._MD_TADLINK_UNCATEGORIZED}><{/if}></a> <span class="badge"><{$link_counter}></span>
+              <a href="index.php?cate_sn=<{$cate_sn}>" style="color: white;"><{if $cate_sn}><{$cate_title}><{else}><{$smarty.const._MD_ALBUMLINK_UNCATEGORIZED}><{/if}></a> <span class="badge"><{$link_counter}></span>
             </button>
           </div>
 
           <div class="col-sm-6 text-right">
             <{if $isAdmin or $uid==$now_uid}>
-              <a href="index.php?op=tad_link_form&link_sn=<{$link_sn}>" class="btn btn-xs btn-warning"><{$smarty.const._TAD_EDIT}></a>
-              <a href="javascript:delete_tad_link_func(<{$link_sn}>)" class="btn btn-xs btn-danger"><{$smarty.const._TAD_DEL}></a>
+              <a href="index.php?op=album_link_form&link_sn=<{$link_sn}>" class="btn btn-xs btn-warning"><{$smarty.const._TAD_EDIT}></a>
+              <a href="javascript:delete_album_link_func(<{$link_sn}>)" class="btn btn-xs btn-danger"><{$smarty.const._TAD_DEL}></a>
             <{/if}>
-            <a href="index.php?cate_sn=<{$cate_sn}>" class="btn btn-xs btn-info"><{$smarty.const._MD_TADLINK_CATE_INFO2}></a>
+            <a href="index.php?cate_sn=<{$cate_sn}>" class="btn btn-xs btn-info"><{$smarty.const._MD_ALBUMLINK_CATE_INFO2}></a>
           </div>
         </div>
-        <p style="margin: 20px auto;"><a href="index.php?op=go&link_sn=<{$link_sn}>" target="_blank" class="btn btn-primary btn-block"><{$smarty.const._MD_TADLINK_GOTO_LINK}><{$link_url}></a></p>
+        <p style="margin: 20px auto;"><a href="index.php?op=go&link_sn=<{$link_sn}>" target="_blank" class="btn btn-primary btn-block"><{$smarty.const._MD_ALBUMLINK_GOTO_LINK}><{$link_url}></a></p>
 
 
 
@@ -94,17 +94,17 @@
 
     <div class="row">
       <div class="col-sm-2 text-right">
-        <{$smarty.const._MD_TADLINK_SHOW_CATE}><{$smarty.const._TAD_FOR}>
+        <{$smarty.const._MD_ALBUMLINK_SHOW_CATE}><{$smarty.const._TAD_FOR}>
       </div>
       <div class="col-sm-6">
         <select name="show_cate_sn" class="form-control" id="show_cate_sn" onChange="location.href='index.php?op=batch&cate_sn='+this.value;">
           <option value="" ></option>
-          <{$get_tad_link_cate_options}>
+          <{$get_album_link_cate_options}>
         </select>
       </div>
       <div class="col-sm-4">
         <{if $isAdmin and $show_cate_sn!=""}>
-          <a href="index.php?cate_sn=<{$show_cate_sn}>" class="btn btn-success"><{$smarty.const._MD_TADLINK_BACK}></a>
+          <a href="index.php?cate_sn=<{$show_cate_sn}>" class="btn btn-success"><{$smarty.const._MD_ALBUMLINK_BACK}></a>
         <{/if}>
       </div>
     </div>
@@ -121,7 +121,7 @@
                 <th colspan="2" >
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" id="clickAll"> <{$smarty.const._MD_TADLINK_SELECT_ALL}>
+                      <input type="checkbox" id="clickAll"> <{$smarty.const._MD_ALBUMLINK_SELECT_ALL}>
                     </label>
                   </div>
                 </th>
@@ -140,23 +140,23 @@
                       <span class="label label-info"><a href="index.php?op=go&link_sn=<{$link.link_sn}>" target="_blank" style="color:white">Go</a></span>
 
                       <{if $link.overdue}>
-                        <span class="label label-important"><{$smarty.const._MD_TADLINK_OVERDUE}></span>
+                        <span class="label label-important"><{$smarty.const._MD_ALBUMLINK_OVERDUE}></span>
                       <{/if}>
 
                     </label>
                   </td>
                   <td>
-                    <a href="javascript:delete_tad_link_func(<{$link.link_sn}>)" class="btn btn-xs btn-danger"><{$smarty.const._TAD_DEL}></a>
-                    <a href="index.php?op=tad_link_form&mode=batch&link_sn=<{$link.link_sn}>" class="btn btn-xs btn-warning"><{$smarty.const._TAD_EDIT}></a>
+                    <a href="javascript:delete_album_link_func(<{$link.link_sn}>)" class="btn btn-xs btn-danger"><{$smarty.const._TAD_DEL}></a>
+                    <a href="index.php?op=album_link_form&mode=batch&link_sn=<{$link.link_sn}>" class="btn btn-xs btn-warning"><{$smarty.const._TAD_EDIT}></a>
                   </td>
                 </tr>
 
               <{/foreach}>
             </tbody>
           </table>
-          <span class="help-block"><{$smarty.const._MD_TADLINK_DRAG_SORT}></span>
+          <span class="help-block"><{$smarty.const._MD_ALBUMLINK_DRAG_SORT}></span>
           <input type="hidden" id="all_sn" >
-          <a href="javascript:delete_all_link_func()" class="btn btn-danger"><{$smarty.const._MD_TADLINK_BATCH_DEL}></a>
+          <a href="javascript:delete_all_link_func()" class="btn btn-danger"><{$smarty.const._MD_ALBUMLINK_BATCH_DEL}></a>
         </form>
       </div>
     </div>
@@ -164,13 +164,13 @@
 
   <{if $all_content}>
 
-    <h1><{if $cate.cate_sn}><{$cate.cate_title}><{else}><{$smarty.const._MD_TADLINK_UNCATEGORIZED}><{/if}></h1>
+    <h1><{if $cate.cate_sn}><{$cate.cate_title}><{else}><{$smarty.const._MD_ALBUMLINK_UNCATEGORIZED}><{/if}></h1>
     <div class="row">
       <div class="col-sm-3">
         <{$ztree_code}>
         <{if $isAdmin and $show_cate_sn!=""}>
           <div class="text-center">
-            <a href="index.php?op=batch&cate_sn=<{$show_cate_sn}>" class="btn btn-success"><{$smarty.const._MD_TADLINK_BATCH}><{if $cate.cate_sn}><{$cate.cate_title}><{else}><{$smarty.const._MD_TADLINK_UNCATEGORIZED}><{/if}></a>
+            <a href="index.php?op=batch&cate_sn=<{$show_cate_sn}>" class="btn btn-success"><{$smarty.const._MD_ALBUMLINK_BATCH}><{if $cate.cate_sn}><{$cate.cate_title}><{else}><{$smarty.const._MD_ALBUMLINK_UNCATEGORIZED}><{/if}></a>
           </div>
         <{/if}>
       </div>
@@ -186,8 +186,8 @@
 
               <{if $isAdmin or $link.uid==$now_uid}>
                 <div class="pull-right">
-                  <a href="javascript:delete_tad_link_func(<{$link.link_sn}>)" class="btn btn-xs btn-danger"><{$smarty.const._TAD_DEL}></a>
-                  <a href="index.php?op=tad_link_form&link_sn=<{$link.link_sn}>" class="btn btn-xs btn-warning"><{$smarty.const._TAD_EDIT}></a>
+                  <a href="javascript:delete_album_link_func(<{$link.link_sn}>)" class="btn btn-xs btn-danger"><{$smarty.const._TAD_DEL}></a>
+                  <a href="index.php?op=album_link_form&link_sn=<{$link.link_sn}>" class="btn btn-xs btn-warning"><{$smarty.const._TAD_EDIT}></a>
                 </div>
               <{/if}>
 
@@ -196,7 +196,7 @@
               </div>
 
               <div style="font-size: 12px; margin: 10px 0px;">
-                  <{if $link.cate_sn}><a href="index.php?cate_sn=<{$link.cate_sn}>"><{$link.cate_title}></a><{else}><span style="color:red;"><{$smarty.const._MD_TADLINK_UNCATEGORIZED}></span><{/if}> |
+                  <{if $link.cate_sn}><a href="index.php?cate_sn=<{$link.cate_sn}>"><{$link.cate_title}></a><{else}><span style="color:red;"><{$smarty.const._MD_ALBUMLINK_UNCATEGORIZED}></span><{/if}> |
 
                 <a href="index.php?op=go&link_sn=<{$link.link_sn}>" target="_blank"><{$link.link_url}></a>
               </div>
@@ -216,7 +216,7 @@
   <{/if}>
 
   <{if $post_cate_arr or $isAdmin}>
-    <{includeq file="db:tad_link_form.tpl"}>
+    <{includeq file="db:album_link_form.tpl"}>
   <{/if}>
 
 <{/if}>

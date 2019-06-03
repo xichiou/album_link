@@ -2,11 +2,11 @@
 $modversion = [];
 
 //---模組基本資訊---//
-$modversion['name'] = _MI_TADLINK_NAME;
+$modversion['name'] = _MI_ALBUMLINK_NAME;
 $modversion['version'] = 2.7;
-$modversion['description'] = _MI_TADLINK_DESC;
-$modversion['author'] = _MI_TADLINK_AUTHOR;
-$modversion['credits'] = _MI_TADLINK_CREDITS;
+$modversion['description'] = _MI_ALBUMLINK_DESC;
+$modversion['author'] = _MI_ALBUMLINK_AUTHOR;
+$modversion['credits'] = _MI_ALBUMLINK_CREDITS;
 $modversion['help'] = 'page=help';
 $modversion['license'] = 'GNU GPL 2.0';
 $modversion['license_url'] = 'www.gnu.org/licenses/gpl-2.0.html/';
@@ -35,8 +35,8 @@ $modversion['system_menu'] = 1;
 
 //---資料表架構---//
 $modversion['sqlfile']['mysql'] = 'sql/mysql.sql';
-$modversion['tables'][1] = 'tad_link_cate';
-$modversion['tables'][2] = 'tad_link';
+$modversion['tables'][1] = 'album_link_cate';
+$modversion['tables'][2] = 'album_link';
 
 //---管理介面設定---//
 $modversion['hasAdmin'] = 1;
@@ -54,65 +54,65 @@ $modversion['onUninstall'] = 'include/onUninstall.php';
 //---樣板設定---//
 $modversion['templates'] = [];
 $i = 1;
-$modversion['templates'][$i]['file'] = 'tad_link_index.tpl';
-$modversion['templates'][$i]['description'] = 'tad_link_index.tpl';
+$modversion['templates'][$i]['file'] = 'album_link_index.tpl';
+$modversion['templates'][$i]['description'] = 'album_link_index.tpl';
 
 $i++;
-$modversion['templates'][$i]['file'] = 'tad_link_adm_main.tpl';
-$modversion['templates'][$i]['description'] = 'tad_link_adm_main.tpl';
+$modversion['templates'][$i]['file'] = 'album_link_adm_main.tpl';
+$modversion['templates'][$i]['description'] = 'album_link_adm_main.tpl';
 
 $i++;
-$modversion['templates'][$i]['file'] = 'tad_link_form.tpl';
-$modversion['templates'][$i]['description'] = 'tad_link_form.tpl';
+$modversion['templates'][$i]['file'] = 'album_link_form.tpl';
+$modversion['templates'][$i]['description'] = 'album_link_form.tpl';
 
 $i++;
-$modversion['templates'][$i]['file'] = 'tad_link_adm_power.tpl';
-$modversion['templates'][$i]['description'] = 'tad_link_adm_power.tpl';
+$modversion['templates'][$i]['file'] = 'album_link_adm_power.tpl';
+$modversion['templates'][$i]['description'] = 'album_link_adm_power.tpl';
 
 //---搜尋設定---//
 $modversion['hasSearch'] = 1;
-$modversion['search']['file'] = 'include/tad_link_search.php';
-$modversion['search']['func'] = 'tad_link_search';
+$modversion['search']['file'] = 'include/album_link_search.php';
+$modversion['search']['func'] = 'album_link_search';
 
 //---區塊設定---//
-$modversion['blocks'][1]['file'] = 'tad_link_show.php';
-$modversion['blocks'][1]['name'] = _MI_TADLINK_BNAME1;
-$modversion['blocks'][1]['description'] = _MI_TADLINK_BDESC1;
-$modversion['blocks'][1]['show_func'] = 'tad_link_show';
-$modversion['blocks'][1]['template'] = 'tad_link_block_show.tpl';
-$modversion['blocks'][1]['edit_func'] = 'tad_link_show_edit';
+$modversion['blocks'][1]['file'] = 'album_link_show.php';
+$modversion['blocks'][1]['name'] = _MI_ALBUMLINK_BNAME1;
+$modversion['blocks'][1]['description'] = _MI_ALBUMLINK_BDESC1;
+$modversion['blocks'][1]['show_func'] = 'album_link_show';
+$modversion['blocks'][1]['template'] = 'album_link_block_show.tpl';
+$modversion['blocks'][1]['edit_func'] = 'album_link_show_edit';
 $modversion['blocks'][1]['options'] = '10|1|1|0|new|1||0|3';
 
-$modversion['blocks'][2]['file'] = 'tad_link_all.php';
-$modversion['blocks'][2]['name'] = _MI_TADLINK_BNAME2;
-$modversion['blocks'][2]['description'] = _MI_TADLINK_BDESC2;
-$modversion['blocks'][2]['show_func'] = 'tad_link_all';
-$modversion['blocks'][2]['template'] = 'tad_link_block_all.tpl';
-$modversion['blocks'][2]['edit_func'] = 'tad_link_all_edit';
+$modversion['blocks'][2]['file'] = 'album_link_all.php';
+$modversion['blocks'][2]['name'] = _MI_ALBUMLINK_BNAME2;
+$modversion['blocks'][2]['description'] = _MI_ALBUMLINK_BDESC2;
+$modversion['blocks'][2]['show_func'] = 'album_link_all';
+$modversion['blocks'][2]['template'] = 'album_link_block_all.tpl';
+$modversion['blocks'][2]['edit_func'] = 'album_link_all_edit';
 $modversion['blocks'][2]['options'] = '1||dropdown|1';
 
 $i = 0;
 
 $i++;
 $modversion['config'][$i]['name'] = 'show_num';
-$modversion['config'][$i]['title'] = '_MI_TADLINK_SHOW_NUM';
-$modversion['config'][$i]['description'] = '_MI_TADLINK_SHOW_NUM_DESC';
+$modversion['config'][$i]['title'] = '_MI_ALBUMLINK_SHOW_NUM';
+$modversion['config'][$i]['description'] = '_MI_ALBUMLINK_SHOW_NUM_DESC';
 $modversion['config'][$i]['formtype'] = 'textbox';
 $modversion['config'][$i]['valuetype'] = 'int';
 $modversion['config'][$i]['default'] = '10';
 
 $i++;
 $modversion['config'][$i]['name'] = 'pic_width';
-$modversion['config'][$i]['title'] = '_MI_TADLINK_PIC_WIDTH';
-$modversion['config'][$i]['description'] = '_MI_TADLINK_PIC_WIDTH_DESC';
+$modversion['config'][$i]['title'] = '_MI_ALBUMLINK_PIC_WIDTH';
+$modversion['config'][$i]['description'] = '_MI_ALBUMLINK_PIC_WIDTH_DESC';
 $modversion['config'][$i]['formtype'] = 'textbox';
 $modversion['config'][$i]['valuetype'] = 'int';
 $modversion['config'][$i]['default'] = '400';
 
 $i++;
 $modversion['config'][$i]['name'] = 'direct_link';
-$modversion['config'][$i]['title'] = '_MI_TADLINK_DIRECT_LINK';
-$modversion['config'][$i]['description'] = '_MI_TADLINK_DIRECT_LINK_DESC';
+$modversion['config'][$i]['title'] = '_MI_ALBUMLINK_DIRECT_LINK';
+$modversion['config'][$i]['description'] = '_MI_ALBUMLINK_DIRECT_LINK_DESC';
 $modversion['config'][$i]['formtype'] = 'yesno';
 $modversion['config'][$i]['valuetype'] = 'int';
 $modversion['config'][$i]['default'] = '0';

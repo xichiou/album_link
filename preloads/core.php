@@ -18,7 +18,7 @@ defined('XOOPS_ROOT_PATH') || die('Restricted access.');
 /**
  * Class Tad_linkCorePreload
  */
-class Tad_linkCorePreload extends XoopsPreloadItem
+class Album_linkCorePreload extends XoopsPreloadItem
 {
     // to add PSR-4 autoloader
 

@@ -69,15 +69,15 @@ function chk_function()
 {
     $main = '';
     if (!function_exists('curl_init')) {
-        $main .= "<div style='color:red;'>" . sprintf(_MI_TADLINK_NO_FUNCTION, 'curl_init') . '</div>';
+        $main .= "<div style='color:red;'>" . sprintf(_MI_ALBUMLINK_NO_FUNCTION, 'curl_init') . '</div>';
     } else {
-        $main .= "<div style='color:blue;'>" . sprintf(_MI_TADLINK_FUNCTION_OK, 'curl_init') . '</div>';
+        $main .= "<div style='color:blue;'>" . sprintf(_MI_ALBUMLINK_FUNCTION_OK, 'curl_init') . '</div>';
     }
 
     if (!function_exists('file_get_contents')) {
-        $main .= "<div style='color:red;'>" . sprintf(_MI_TADLINK_NO_FUNCTION, 'file_get_contents') . '</div>';
+        $main .= "<div style='color:red;'>" . sprintf(_MI_ALBUMLINK_NO_FUNCTION, 'file_get_contents') . '</div>';
     } else {
-        $main .= "<div style='color:blue;'>" . sprintf(_MI_TADLINK_FUNCTION_OK, 'file_get_contents') . '</div>';
+        $main .= "<div style='color:blue;'>" . sprintf(_MI_ALBUMLINK_FUNCTION_OK, 'file_get_contents') . '</div>';
     }
 
     return $main;

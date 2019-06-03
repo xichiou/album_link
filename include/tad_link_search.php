@@ -1,6 +1,6 @@
 <?php
 //好站連結搜尋程式
-function tad_link_search($queryarray, $andor, $limit, $offset, $userid)
+function album_link_search($queryarray, $andor, $limit, $offset, $userid)
 {
     global $xoopsDB;
     //處理許功蓋
@@ -10,7 +10,7 @@ function tad_link_search($queryarray, $andor, $limit, $offset, $userid)
         }
         $queryarray = $arr;
     }
-    $sql = 'SELECT `link_sn`,`link_title`,`link_url`,`post_date`, `uid` FROM ' . $xoopsDB->prefix('tad_link') . " WHERE enable='1'";
+    $sql = 'SELECT `link_sn`,`link_title`,`link_url`,`post_date`, `uid` FROM ' . $xoopsDB->prefix('album_link') . " WHERE enable='1'";
     if (0 != $userid) {
         $sql .= ' AND uid=' . $userid . ' ';
     }
