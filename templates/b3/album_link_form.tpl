@@ -43,7 +43,9 @@
         <input type="text" name="unable_date" class="form-control" value="<{$unable_date}>" id="unable_date" placeholder="<{$smarty.const._MD_ALBUMLINK_UNABLE_DATE}>"  onClick="WdatePicker({dateFmt:'yyyy-MM-dd' , startDate:'%y-%M-%d}'})">
       </div>
       <div class="col-sm-2">
+      <!--
         <button type="button" id="LinkGet" class="btn btn-primary pull-right"><{$smarty.const._MD_ALBUMLINK_AUTOGET}></button>
+      -->
       </div>
     </div>
 

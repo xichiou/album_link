@@ -16,7 +16,7 @@
 defined('XOOPS_ROOT_PATH') || die('Restricted access.');
 
 /**
- * Class Tad_linkCorePreload
+ * Class Album_linkCorePreload
  */
 class Album_linkCorePreload extends XoopsPreloadItem
 {

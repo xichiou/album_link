@@ -22,7 +22,7 @@ define('_MA_ALBUMLINK_UID', '發布者');
 define('_MA_ALBUMLINK_POST_DATE', '發布日期');
 define('_MA_ALBUMLINK_ENABLE', '是否啟用');
 define('_MA_ALBUMLINK_FORM', '連結管理');
-define('_MA_ALBUMLINK_QUICK_ADD', '快速新增');
+define('_MA_ALBUMLINK_QUICK_ADD', '新增相簿連結');
 define('_MA_ALBUMLINK_CATE_COUNT', '有 %s 個連結');
 define('_MA_ALBUMLINK_EMPTY', '尚無資料');
 define('_MA_ALBUMLINK_SET_POST_POWER', '可發布群組');

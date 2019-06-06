@@ -11,8 +11,8 @@ define('_MI_ALBUMLINK_ADMENU3', '權限設定');
 define('_MI_ALBUMLINK_TEMPLATE_DESC1', 'album_link_index.html的樣板檔。');
 define('_MI_ALBUMLINK_BNAME1', '最新網路相簿');
 define('_MI_ALBUMLINK_BDESC1', '最新網路相簿(album_link_show)');
-define('_MI_ALBUMLINK_BNAME2', '好站推薦快速連結');
-define('_MI_ALBUMLINK_BDESC2', '好站推薦快速連結(album_link_all)');
+define('_MI_ALBUMLINK_BNAME2', '推薦網路相簿連結');
+define('_MI_ALBUMLINK_BDESC2', '推薦網路相簿連結(album_link_all)');
 
 define('_MI_ALBUMLINK_SHOW_NUM', '一次顯示幾個連結');
 define('_MI_ALBUMLINK_SHOW_NUM_DESC', '首頁顯示連結的數量，作為分頁依據');

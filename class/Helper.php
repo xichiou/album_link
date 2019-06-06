@@ -1,6 +1,6 @@
 <?php
 
-namespace XoopsModules\Tad_link;
+namespace XoopsModules\Album_link;
 
 /*
  * You may not change or alter any portion of this comment or credits
@@ -41,7 +41,7 @@ class Helper extends \Xmf\Module\Helper
     /**
      * @param bool $debug
      *
-     * @return \XoopsModules\Tad_link\Helper
+     * @return \XoopsModules\Album_link\Helper
      */
     public static function getInstance($debug = false)
     {

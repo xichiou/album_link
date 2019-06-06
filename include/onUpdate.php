@@ -1,8 +1,8 @@
 <?php
 
-use XoopsModules\Tad_link\Update;
+use XoopsModules\Album_link\Update;
 
-if (!class_exists('XoopsModules\Tad_link\Update')) {
+if (!class_exists('XoopsModules\Album_link\Update')) {
     include dirname(__DIR__) . '/preloads/autoloader.php';
 }
 function xoops_module_update_album_link(&$module, $old_version)

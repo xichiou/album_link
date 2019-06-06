@@ -1,6 +1,6 @@
 <?php
 
-namespace XoopsModules\Tad_link;
+namespace XoopsModules\Album_link;
 
 /*
 Update Class Definition
