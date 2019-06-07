@@ -135,8 +135,8 @@ $modversion['config'][$i]['default'] = '1';
 
 $i++;
 $modversion['config'][$i]['name'] = 'capture_from';
-$modversion['config'][$i]['title'] = '_MI_CAPTURE_FROM';
-$modversion['config'][$i]['description'] = '_MI_CAPTURE_FROM_DESC';
+$modversion['config'][$i]['title'] = '_MI_ALBUM_CAPTURE_FROM';
+$modversion['config'][$i]['description'] = '_MI_ALBUM_CAPTURE_FROM_DESC';
 $modversion['config'][$i]['formtype'] = 'select';
 $modversion['config'][$i]['valuetype'] = 'text';
 $modversion['config'][$i]['options'] = ['capture.heartrails.com' => 'capture.heartrails.com', '120.115.2.78' => '120.115.2.78'];

@@ -31,5 +31,5 @@ define('_MI_ALBUMLINK_BACK_2_ADMIN', 'Back to Administration of ');
 //help
 define('_MI_ALBUMLINK_HELP_OVERVIEW', 'Overview');
 
-define('_MI_CAPTURE_FROM', 'Thumbnail source');
-define('_MI_CAPTURE_FROM_DESC', '120.115.2.78 may be more unstable');
+define('_MI_ALBUM_CAPTURE_FROM', 'Thumbnail source');
+define('_MI_ALBUM_CAPTURE_FROM_DESC', '120.115.2.78 may be more unstable');

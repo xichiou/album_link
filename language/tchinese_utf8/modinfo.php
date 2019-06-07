@@ -32,5 +32,5 @@ define('_MI_ALBUMLINK_BACK_2_ADMIN', '管理');
 //help
 define('_MI_ALBUMLINK_HELP_OVERVIEW', '概要');
 
-define('_MI_CAPTURE_FROM', '縮圖擷取來源');
-define('_MI_CAPTURE_FROM_DESC', '120.115.2.78 為自架主機，可能會比較不穩');
+define('_MI_ALBUM_CAPTURE_FROM', '縮圖擷取來源');
+define('_MI_ALBUM_CAPTURE_FROM_DESC', '120.115.2.78 為自架主機，可能會比較不穩');
