@@ -1,0 +1,1 @@
+Album Link 修改自 [Tad Link 2.7](https://github.com/tad0616/tad_link/commit/c9b74e06d7304dfa66439f52e319716fe0598a40)
