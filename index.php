@@ -24,7 +24,7 @@ function list_album_link($show_cate_sn = '', $mode = '')
     $show_num = empty($xoopsModuleConfig['show_num']) ? 10 : $xoopsModuleConfig['show_num'];
     $cate = get_album_link_cate_all();
 
-    $and_cate = empty($show_cate_sn) ? 'order by post_date desc' : "and cate_sn='$show_cate_sn' order by link_sort";
+    $and_cate = empty($show_cate_sn) ? 'order by post_date desc' : "and cate_sn='$show_cate_sn' order by link_sort DESC";
 
     //今天日期
     $today = date('Y-m-d');
