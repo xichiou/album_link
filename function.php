@@ -153,6 +153,16 @@ function get_show_pic($link_sn, $mode = 'thumb')
     if (file_exists($pic_path)) {
         return $pic;
     }
+    else {
+        if ('thumb' === $mode) {
+            $pic = XOOPS_URL . '/modules/album_link/images/pic_thumb.png';
+        } else {
+            $pic = XOOPS_URL . '/modules/album_link/images/pic_big.png';
+        }
+        return $pic;
+    }
+    // 以下程式碼沒有作用了
+
     get_pic($link_sn);
     if ('thumb' === $mode) {
         if ('120.115.2.78' === $xoopsModuleConfig['capture_from']) {
