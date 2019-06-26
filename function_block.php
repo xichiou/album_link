@@ -18,8 +18,8 @@ if (!function_exists('album_link_cate_count')) {
 }
 
 //取得所有類別標題
-if (!function_exists('block_link_cate')) {
-    function block_link_cate($selected = '')
+if (!function_exists('block_album_link_cate')) {
+    function block_album_link_cate($selected = '')
     {
         global $xoopsDB;
         $counter = album_link_cate_count();

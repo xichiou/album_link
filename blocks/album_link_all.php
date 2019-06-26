@@ -64,7 +64,7 @@ function album_link_all_edit($options)
     $opt2_dropdown = ('list' !== $options[2]) ? 'checked' : '';
     $opt2_list = ('list' === $options[2]) ? 'checked' : '';
 
-    $menu = block_link_cate($options[1]);
+    $menu = block_album_link_cate($options[1]);
 
     $form = "{$menu['js']}
     <ol class='my-form'>

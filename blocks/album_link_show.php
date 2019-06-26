@@ -35,7 +35,7 @@ function album_link_show($options)
         $link_go = ($options[5]) ? $link_url : '' . XOOPS_URL . "/modules/album_link/index.php?link_sn={$link_sn}";
 
         $height = 10;
-        $thumb = get_show_block_pic($link_sn);
+        $thumb = get_show_album_block_pic($link_sn);
         $pic = ($options[1]) ? "<a href='{$link_go}' target='_blank' title='$link_title'><img src='$thumb' alt='{$link_url}' class='img-responsive img-fluid'></a>" : '';
         $height += ($options[1]) ? 100 : 5;
 
@@ -84,7 +84,7 @@ function album_link_show_edit($options)
     $s1 = ('1' == $options[8]) ? 'selected' : '';
     $sno = ('0' == $options[8]) ? 'selected' : '';
 
-    $menu = block_link_cate($options[6]);
+    $menu = block_album_link_cate($options[6]);
 
     $form = "{$menu['js']}
     <ol class='my-form'>
@@ -162,9 +162,9 @@ function album_link_show_edit($options)
     return $form;
 }
 
-if (!function_exists('get_show_block_pic')) {
+if (!function_exists('get_show_album_block_pic')) {
     //顯示圖片
-    function get_show_block_pic($link_sn)
+    function get_show_album_block_pic($link_sn)
     {
         $pic = XOOPS_URL . "/uploads/album_link/{$link_sn}.jpg";
         $pic_path = XOOPS_ROOT_PATH . "/uploads/album_link/{$link_sn}.jpg";
