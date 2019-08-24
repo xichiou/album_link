@@ -10,21 +10,32 @@
     <{/foreach}>
     <div style='clear:both;'></div>
 <{else}>
-    <div class="row">
-        <{foreach from=$block.links item=web}>
-        <div class="col-sm-<{$block.col}>" <{if $block.height}>style="height: <{$block.height}>px;"<{/if}>>
-            <div class="thumbnail my-2" <{if $block.height!=0}>style="height: <{$block.height}>px; overflow: hidden;"<{/if}>>
-                <{$web.pic}>
-                <{if $web.title or $web.url}>
-                    <div class="caption">
-                        <{if $web.title}><p style="font-size: 12px;height: 18px; overflow: hidden;"><{$web.title}></p><{/if}>
-                        <{if $web.url}><p style="font-size: 11px; height: 18px; overflow: hidden;"><{$web.url}></p><{/if}>
-                    </div>
-                <{/if}>
-            </div>
+    <{assign var="i" value=0}>
+    <{assign var="total" value=1}>
+    <{foreach from=$block.links item=web}>
+
+      <{if $i==0}>
+          <div class="row">
+      <{/if}>
+
+      <div class="col my-2" id="item_album_<{$album.csn}>">
+        <div class="card">
+          <div class="AlbumCate">
+            <a href="<{$web.url}>" style="display:block; width:100%;height:100%; background: url('<{$web.pic}>') center center / cover no-repeat #252a44;">
+              <div style="font-size: 1.1em; font-weight:normal; color:#FFFFFF; position:absolute; bottom:2px; left:10px; text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0px -1px 0 #000, 0px 1px 0 #000, -1px 0px 0 #000, 1px 0px 0 #000;"><{$web.title}></div>
+            </a>
+          </div>
         </div>
-        <{/foreach}>
-    </div>
+      </div>
+
+      <{assign var="i" value=$i+1}>
+          <{if $i == $block.col || $total==$block.count}>
+              </div>
+              <{assign var="i" value=0}>
+          <{/if}>
+      <{assign var="total" value=$total+1}>
+    <{/foreach}>
+
 <{/if}>
 
 <div style="text-align:right;">

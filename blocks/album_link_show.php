@@ -36,14 +36,17 @@ function album_link_show($options)
 
         $height = 10;
         $thumb = get_show_album_block_pic($link_sn);
-        $pic = ($options[1]) ? "<a href='{$link_go}' target='_blank' title='$link_title'><img src='$thumb' alt='{$link_url}' class='img-responsive img-fluid'></a>" : '';
+        // $pic = ($options[1]) ? "<a href='{$link_go}' target='_blank' title='$link_title'><img src='$thumb' alt='{$link_url}' class='img-responsive img-fluid'></a>" : '';
+        $pic = $thumb;
         $height += ($options[1]) ? 100 : 5;
 
-        $title = ($options[2]) ? "<a href='{$link_go}' target='_blank' title='$link_title'>$link_title</a>" : '';
+        // $title = ($options[2]) ? "<a href='{$link_go}' target='_blank' title='$link_title'>$link_title</a>" : '';
+        $title = $link_title;
 
         $height += ($options[2]) ? 30 : 0;
 
-        $url = ($options[3]) ? "<a href='{$link_go}' target='_blank' title='$link_title'>$link_url</a>" : '';
+        // $url = ($options[3]) ? "<a href='{$link_go}' target='_blank' title='$link_title'>$link_url</a>" : '';
+        $url = $link_go;
 
         $height += ($options[3]) ? 25 : 0;
 
@@ -56,6 +59,8 @@ function album_link_show($options)
     $block['height'] = $options[7];
     $block['col'] = $options[8];
     $block['cate_sn'] = $options[6];
+
+    $block['count'] = $i;
 
     return $block;
 }
@@ -76,13 +81,29 @@ function album_link_show_edit($options)
     $chked4_2 = ('sort' === $options[4]) ? 'checked' : '';
     $chked5_1 = ('1' == $options[5]) ? 'checked' : '';
     $chked5_0 = ('0' == $options[5]) ? 'checked' : '';
-    $s12 = ('12' == $options[8]) ? 'selected' : '';
-    $s6 = ('6' == $options[8]) ? 'selected' : '';
-    $s4 = ('4' == $options[8]) ? 'selected' : '';
-    $s3 = ('3' == $options[8]) ? 'selected' : '';
-    $s2 = ('2' == $options[8]) ? 'selected' : '';
-    $s1 = ('1' == $options[8]) ? 'selected' : '';
-    $sno = ('0' == $options[8]) ? 'selected' : '';
+
+    if (4 == $_SESSION['bootstrap']) {
+        $opt8 = '';
+        for ($i = 1; $i <= 12; $i++) {
+            $selected = $options[8] == $i ? 'selected' : '';
+            $opt8 .= "<option value='$i' $selected >$i</option>";
+        }
+    } else {
+        $s12 = ('12' == $options[8]) ? 'selected' : '';
+        $s6 = ('6' == $options[8]) ? 'selected' : '';
+        $s4 = ('4' == $options[8]) ? 'selected' : '';
+        $s3 = ('3' == $options[8]) ? 'selected' : '';
+        $s2 = ('2' == $options[8]) ? 'selected' : '';
+        $s1 = ('1' == $options[8]) ? 'selected' : '';
+        $sno = ('0' == $options[8]) ? 'selected' : '';
+
+        $opt8 = "<option value='12' $s12>1</option>
+        <option value='6' $s6>2</option>
+        <option value='4' $s4>3</option>
+        <option value='3' $s3>4</option>
+        <option value='2' $s2>6</option>
+        <option value='1' $s1>12</option>";
+    }
 
     $menu = block_album_link_cate($options[6]);
 
@@ -94,6 +115,7 @@ function album_link_show_edit($options)
                 <input type='text' name='options[0]' class='my-input' value='{$options[0]}' size=3>
             </div>
         </li>
+        <!--
         <li class='my-row'>
             <lable class='my-label'>" . _MB_ALBUMLINK_SHOW_EDIT_BITEM1 . "</lable>
             <div class='my-content'>
@@ -115,6 +137,10 @@ function album_link_show_edit($options)
                 <input type='radio' name='options[3]' value='0' $chked3_0>" . _NO . "
             </div>
         </li>
+        -->
+        <input type='hidden' name='options[1]' value='{$options[1]}'>
+        <input type='hidden' name='options[2]' value='{$options[2]}'>
+        <input type='hidden' name='options[3]' value='{$options[3]}'>
         <li class='my-row'>
             <lable class='my-label'>" . _MB_ALBUMLINK_SHOW_EDIT_BITEM3 . "</lable>
             <div class='my-content'>
@@ -147,13 +173,7 @@ function album_link_show_edit($options)
             <lable class='my-label'>" . _MB_ALBUMLINK_BOOTSTRAP_COL . "</lable>
             <div class='my-content'>
                 <select name='options[8]' class='my-input' value='{$options[8]}'>
-                    <option value='0' $sno>" . _MB_ALBUMLINK_NO_BOOTSTRAP_COL . "</option>
-                    <option value='12' $s12>1</option>
-                    <option value='6' $s6>2</option>
-                    <option value='4' $s4>3</option>
-                    <option value='3' $s3>4</option>
-                    <option value='2' $s2>6</option>
-                    <option value='1' $s1>12</option>
+                    $opt8
                 </select>
             </div>
         </li>
