@@ -54,6 +54,7 @@ function album_link_show($options)
         $block['links'][$i]['pic'] = $pic;
         $block['links'][$i]['url'] = $url;
         $block['links'][$i]['title'] = $title;
+        $block['links'][$i]['link_sn'] = $link_sn;
         $i++;
     }
     $block['height'] = $options[7];

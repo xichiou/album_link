@@ -10,6 +10,16 @@
     <{/foreach}>
     <div style='clear:both;'></div>
 <{else}>
+
+    <style type="text/css">
+    .AlbumLink{
+      background-color:black;
+      position:relative;
+      height:140px;
+      overflow:hidden;
+    }
+    </style>
+
     <{assign var="i" value=0}>
     <{assign var="total" value=1}>
     <{foreach from=$block.links item=web}>
@@ -18,9 +28,9 @@
           <div class="row">
       <{/if}>
 
-      <div class="col my-2" id="item_album_<{$album.csn}>">
+      <div class="col my-2" id="item_album_link_<{$web.link_sn}>">
         <div class="card">
-          <div class="AlbumCate">
+          <div class="AlbumLink">
             <a href="<{$web.url}>" style="display:block; width:100%;height:100%; background: url('<{$web.pic}>') center center / cover no-repeat #252a44;">
               <div style="font-size: 1.1em; font-weight:normal; color:#FFFFFF; position:absolute; bottom:2px; left:10px; text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0px -1px 0 #000, 0px 1px 0 #000, -1px 0px 0 #000, 1px 0px 0 #000;"><{$web.title}></div>
             </a>
