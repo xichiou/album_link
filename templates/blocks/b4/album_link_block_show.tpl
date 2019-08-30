@@ -11,15 +11,6 @@
     <div style='clear:both;'></div>
 <{else}>
 
-    <style type="text/css">
-    .AlbumLink{
-      background-color:black;
-      position:relative;
-      height:140px;
-      overflow:hidden;
-    }
-    </style>
-
     <{assign var="i" value=0}>
     <{assign var="total" value=1}>
     <{foreach from=$block.links item=web}>

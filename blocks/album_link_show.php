@@ -3,7 +3,7 @@ use XoopsModules\Tadtools\Utility;
 //區塊主函式 (最新好站連結(album_link_show))
 function album_link_show($options)
 {
-    global $xoopsDB;
+    global $xoopsDB, $xoTheme;
     if (empty($options[0])) {
         $options[0] = 10;
     }
@@ -62,6 +62,10 @@ function album_link_show($options)
     $block['cate_sn'] = $options[6];
 
     $block['count'] = $i;
+
+    if ($xoTheme) {
+        $xoTheme->addStylesheet('modules/album_link/module.css');
+    }
 
     return $block;
 }
