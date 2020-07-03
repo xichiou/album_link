@@ -66,6 +66,7 @@ function album_link_show($options)
     if ($xoTheme) {
         $xoTheme->addStylesheet('modules/album_link/module.css');
     }
+    Utility::get_bootstrap();
 
     return $block;
 }
